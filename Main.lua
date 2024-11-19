@@ -117,6 +117,27 @@ local Button = UniversalTab:CreateButton({
    end
 })
 
+local Button = UniversalTab:CreateButton({
+   Name = "Copy Game (not always suported)",
+   Callback = function()
+      saveinstance()
+      Rayfield:Notify({
+         Title = "Started..",
+         Content = "Started the process (not always supported)",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+})
+
 -- blade ball
 if gameid and placeid == 13772394625 then 
    local BladeballTab = Window:CreateTab("Blade Ball", "gamepad")
