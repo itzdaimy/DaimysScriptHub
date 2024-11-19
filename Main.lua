@@ -1,10 +1,16 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/UIlibrary'))() --rayfield modified :)
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local gameid = game.GameId
 local placeid = game.PlaceId
 
-local InfYield = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"
-local ESP = "https://kiriot22.com/releases/ESP.lua"
-local darkdex = "https://gist.githubusercontent.com/dannythehacker/1781582ab545302f2b34afc4ec53e811/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"
+-- universal scripts
+
+local InfYield = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/infyield.lua"
+local ESP = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/ESP.lua"
+local darkdex = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/darkdexv4.lua"
+
+-- blade ball scripts
+
+local bedolhub = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/bladeball/bedolhub.lua"
 
 local Window = Rayfield:CreateWindow({
    Name = "Daimys Script Hub",
@@ -31,7 +37,7 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Daimys script hub",
       Subtitle = "Key System",
-      Note = "Key in discord",
+      Note = "Key is found in the discord. No ads or links :)",
       FileName = "DaimyKey",
       SaveKey = true, 
       GrabKeyFromSite = false,
@@ -42,7 +48,6 @@ local Window = Rayfield:CreateWindow({
 local UniversalTab = Window:CreateTab("Universal", "anvil")
 local TrollUnisec = UniversalTab:CreateSection("Trolling")
 
--- Create button for Infinite Yield
 local Button = UniversalTab:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
@@ -105,6 +110,31 @@ local Button = UniversalTab:CreateButton({
       })
    end
 })
+
+-- blade ball
+if gameid and placeid == 13772394625 then 
+   local BladeballTab = Window:CreateTab("Blade Ball", "gamepad")
+   local Button = BladeballTab:CreateButton({
+   Name = "Bedol Hub",
+   Callback = function()
+      loadstring(game:HttpGet(bedolhub, true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Bedol Hub loaded!",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+})
+end
 
 
 Rayfield:LoadConfiguration()
