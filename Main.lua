@@ -10,7 +10,7 @@ local Window = Rayfield:CreateWindow({
    Name = "Daimys Script Hub",
    LoadingTitle = "Script hub",
    LoadingSubtitle = "by Daimy",
-   Theme = "Default", -- https://docs.sirius.menu/rayfield/configuration/themes
+   Theme = "Default",
  
    DisableRayfieldPrompts = false,
    DisableBuildWarnings = false,
