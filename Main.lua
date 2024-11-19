@@ -12,6 +12,12 @@ local darkdex = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs
 
 local bedolhub = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/bladeball/bedolhub.lua"
 
+-- arsenal scripts
+local tbaohub = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/arsenal/tbaohub.lua"
+
+-- pets go scripts 
+local zaphub = "https://zaphub.xyz/Exec"
+
 local Window = Rayfield:CreateWindow({
    Name = "Daimys Script Hub",
    LoadingTitle = "Script hub",
@@ -136,5 +142,55 @@ if gameid and placeid == 13772394625 then
 })
 end
 
+-- arsenal
+if gameid and placeid == 286090429 then 
+   local ArsenalTab = Window:CreateTab("Arsenal", "gamepad")
+   local Button = ArsenalTab:CreateButton({
+   Name = "Tbao Hub",
+   Callback = function()
+      loadstring(game:HttpGet(tbaohub, true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Tbao Hub Error!",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+})
+end
+
+-- pets go
+if gameid and placeid == 18901165922 then 
+    print("✅  |  pets go")
+   local ArsenalTab = Window:CreateTab("Pets Go", "gamepad")
+   local Button = ArsenalTab:CreateButton({
+   Name = "Zap Hub",
+   Callback = function()
+      loadstring(game:HttpGet(zaphub, true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Zap Hub loaded!",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+})
+end
 
 Rayfield:LoadConfiguration()
