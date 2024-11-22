@@ -4,19 +4,25 @@ local placeid = game.PlaceId
 
 -- universal scripts
 
+local rinnshub = "https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code"
 local InfYield = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/infyield.lua"
 local ESP = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/ESP.lua"
 local darkdex = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/darkdexv4.lua"
 
 -- blade ball scripts
-
+local bladeballid = 13772394625
 local bedolhub = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/bladeball/bedolhub.lua"
 
 -- arsenal scripts
+local arsenalid = 286090429
 local tbaohub = "https://raw.githubusercontent.com/itzdaimy/DaimysScriptHub/refs/heads/main/scripts/arsenal/tbaohub.lua"
 
 -- pets go scripts 
+local petsgoid = 18901165922
 local zaphub = "https://zaphub.xyz/Exec"
+
+-- mvsd scripts 
+local freakbobmvsd = "https://raw.githubusercontent.com/BeanBotWare/FreakBob/refs/heads/main/FreakBob"
 
 local Window = Rayfield:CreateWindow({
    Name = "Daimys Script Hub",
@@ -46,8 +52,8 @@ local Window = Rayfield:CreateWindow({
       Note = "Key is found in the discord. No ads or links :)",
       FileName = "DaimyKey",
       SaveKey = true, 
-      GrabKeyFromSite = false,
-      Key = {"test"} 
+      GrabKeyFromSite = true,
+      Key = {"https://beamleaks.site/script_key.txt"} 
    }
 })
  
@@ -199,6 +205,51 @@ if gameid and placeid == 18901165922 then
       Rayfield:Notify({
          Title = "Script Executed",
          Content = "Zap Hub loaded!",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+})
+end
+
+-- murder vs sherrif duels
+if gameid and placeid == 12355337193 then 
+   local MvdTab = Window:CreateTab("Murderers VS Sheriffs Duels", "gamepad")
+   local Freakbob = MvdTab:CreateButton({
+   Name = "Freakbob",
+   Callback = function()
+      loadstring(game:HttpGet(freakbobmvsd, true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Freakbob loaded!",
+         Duration = 6.5,
+         Image = 4483362458,
+         Actions = {
+            Ignore = { 
+               Name = "Okay!",
+               Callback = function()
+                  print("Close Notification")
+               end
+            }
+         }
+      })
+   end
+   })
+   local Rinnshub = MvdTab:CreateButton({
+   Name = "Rinns Hub",
+   Callback = function()
+      loadstring(game:HttpGet(rinnshub, true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Rinns Hub loaded!",
          Duration = 6.5,
          Image = 4483362458,
          Actions = {
